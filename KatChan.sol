@@ -893,17 +893,17 @@ contract KatChan is Context, IERC20, Ownable {
     
     
     function setTaxFeePercent(uint256 txFee) external onlyOwner() {
-         require(txFee >= 0 && txFee <= 20, 'taxFee should be in 0 - 100');
+         require(txFee >= 0 && txFee <= 20, 'taxFee should be in 0 - 20');
          _taxFee = txFee;
     }
     
     function setLiquidityFeePercent(uint256 liFee) external onlyOwner() {
-         require(liFee >= 0 && liFee <= 20, 'liquidityFee should be in 0 - 100');
+         require(liFee >= 0 && liFee <= 20, 'liquidityFee should be in 0 - 20');
          _liquidityFee = liFee;
     }
     
     function setCycleBool(uint256 CycleBoolean) external onlyOwner(){
-        require(CycleBoolean >= 0 && CycleBoolean <= 3,'CycleBoolean should be in 0 - 10');
+        require(CycleBoolean >= 0 && CycleBoolean <= 2,'CycleBoolean should be in 0 - 2');
         _cycleFeeBoolean = CycleBoolean;
     }
     
@@ -915,7 +915,7 @@ contract KatChan is Context, IERC20, Ownable {
     }
     
     function setMaxWalletPercent(uint256 maxWalletPercent) external onlyOwner() {
-         require(maxWalletPercent >= 0 && maxWalletPercent <= 100, "maxWalletPercent should be in 1 - 100");
+         require(maxWalletPercent >= 1 && maxWalletPercent <= 100, "maxWalletPercent should be in 1 - 100");
          _maxWalletToken = _tTotal.mul(maxWalletPercent).div(
          10**2
         );
